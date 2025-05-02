@@ -59,11 +59,11 @@
 (fido-vertical-mode)
 
 ;; (set-face-attribute 'default nil :font "Intel One Mono" :height 144)
-;; (set-face-attribute 'default nil :font "Fira Code" :height 136)
+(set-face-attribute 'default nil :font "Fira Code" :height 136)
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :height 136)
 ;; (set-face-attribute 'default nil :font "IBM Plex Mono" :height 136)
 ;; (set-face-attribute 'default nil :font "Consolas" :height 136)
-(set-face-attribute 'default nil :font "Roboto Mono" :height 136)
+;; (set-face-attribute 'default nil :font "Roboto Mono" :height 136)
 ;; (set-face-attribute 'default nil :font "Berkeley Mono" :height 136)
 
 ;;; Whitespace =======================================================
