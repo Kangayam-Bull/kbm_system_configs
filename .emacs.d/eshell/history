@@ -1,0 +1,35 @@
+rm -rf configs/
+git clone https://github.com/Kangayam-Bull/configs.git
+cd ~/.emacs.d/
+cp * d:/configs/.emacs.d/
+cp * d:/configs/.emacs.d/ -r
+cd d:/configs/
+ls
+git status
+git add .
+git commit 
+git commit -m "updated emacs config with ef-themes and roboto mono font face"
+git push master
+git push main
+git status
+git log
+git push root origin/main
+git push HEAD origin/main
+git status
+git push
+start .
+ls
+cd ..
+cd ..
+rg "sadhguru"
+cd ..
+cd ..
+git status
+cd ..
+ls
+cd Obsidian_Docs/Notes/
+git status
+git diff
+git add .
+git commit 
+git commit -m "Periodic Commit"
