@@ -185,6 +185,11 @@
   (set-face-foreground 'rainbow-delimiters-depth-8-face "#999")  ; medium gray
   (set-face-foreground 'rainbow-delimiters-depth-9-face "#666")) ; dark gray
 
+;;; Language Specific Configurations ================================
+;;;=== C ===;;;
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
 ;;; Multiple-Cursors Configurations =================================
 (require 'multiple-cursors)
 
@@ -192,12 +197,6 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-
-;;; Language Specific Configurations ================================
-;;;=== C ===;;;
-(setq c-default-style "linux"
-      c-basic-offset 4)
 
 ;;; The End ==========================================================
 
