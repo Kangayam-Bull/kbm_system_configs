@@ -1,35 +1,128 @@
-rm -rf configs/
-git clone https://github.com/Kangayam-Bull/configs.git
-cd ~/.emacs.d/
-cp * d:/configs/.emacs.d/
-cp * d:/configs/.emacs.d/ -r
-cd d:/configs/
+ls -la
+cargo run
+cd d:/dev/rust/adventOfCode_2014/s1
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
 ls
-git status
-git add .
-git commit 
-git commit -m "updated emacs config with ef-themes and roboto mono font face"
-git push master
-git push main
-git status
-git log
-git push root origin/main
-git push HEAD origin/main
-git status
-git push
-start .
+ls -la src/
+cargo run
+warning: `s1` (bin "s1") generated 2 warnings
+cd ..
+cargo new s2
+cd s2/
+cargo run
+cd ..
+cp s1/src/main.rs s2/src/main.rs 
+cp s1/src/test.txt s2/src/
+cd s2/
+cargo new
+cargo test
+cargo build
+cargo run
+cargo run
+cargo run
+cargo run
+s
 ls
+cd src/
+touch question.txt
 cd ..
-cd ..
-rg "sadhguru"
-cd ..
-cd ..
-git status
+cargo run
+cargo run
+cd D:
+cd ../../..
+cd c
+ls
+cd bugs/
+gcc main.c  -o a.exer
+gcc main.c  -o a.exe
+ls
+rm a.exer 
+a.exe 
+gcc main.c  -o a.exe
+a.exe 
+gcc main.c  -o a.exe
+a.exe 
+gcc main.c  -S a.S
+gcc main.c  -S a.asm
+gcc main.c-S a.asm
+gcc main.c -S a.asm
+gcc main.c -S a.asm -o a.exe
+gcc -S main.c 
+ls
+cat main.s 
+gcc main.c  -o a.exe
+a.exe 
+gcc -S main.c 
+cat main.s
+gcc main.c  -o a.exe
+a.exe 
+cd D:
+ls
+ ls
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc -S main.c
+ls
+cp main.s main_structA.s
+gcc main.c -o a.exe
+gcc -S main.c
+mv main.s main_structB.s
+cat main_structA.s 
 cd ..
 ls
-cd Obsidian_Docs/Notes/
-git status
-git diff
-git add .
-git commit 
-git commit -m "Periodic Commit"
+cd linked_list/
+ls
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+./a.exe 

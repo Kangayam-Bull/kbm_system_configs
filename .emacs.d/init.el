@@ -1,8 +1,14 @@
+;;*****************************************************************
+;;
+;;                     KBM's emacs config - Init
+;;
+;;*****************************************************************
+
 ;;; init.el --- Emfy 0.4.0 <https://github.com/susam/emfy>
 
 ;;; Commentary:
 
-;; A very basic dark and sleek Emacs setup for general purpose
+;; A very basic and sleek Emacs setup for general purpose
 ;; editing and programming.
 
 ;;; Code:
@@ -13,7 +19,7 @@
 ;; Tweak UI.
 (when (display-graphic-p)
   (tool-bar-mode 0)
-  (scroll-bar-mode 0))
+  (scroll-bar-mode 1))
 (setq inhibit-startup-screen t)
 (column-number-mode)
 
@@ -35,7 +41,7 @@
 ;; can specify them in `ef-themes-to-toggle' and then invoke the command
 ;; `ef-themes-toggle'.  All the themes are included in the variable
 ;; `ef-themes-collection'.
-(setq ef-themes-to-toggle '(ef-duo-light ef-eagle))
+(setq ef-themes-to-toggle '(ef-cyprus ef-duo-light ef-eagle))
 
 ;; They are nil by default...
 (setq ef-themes-mixed-fonts t
@@ -45,7 +51,7 @@
 (mapc #'disable-theme custom-enabled-themes)
 
 ;; Load the theme of choice:
-(load-theme 'ef-duo-light :no-confirm)
+(load-theme 'ef-cyprus :no-confirm)
 
 ;; Enable line numbers while writing config, code, or text.
 (dolist (hook '(prog-mode-hook conf-mode-hook text-mode-hook))
@@ -87,11 +93,6 @@
 
 ;; Display the distance between two tab stops as 4 characters wide.
 (setq-default tab-width 4)
-
-;; Indentation setting for various languages.
-(setq c-basic-offset 4)
-(setq js-indent-level 2)
-(setq css-indent-offset 2)
 
 
 ;;; Clean Working Directories ========================================
@@ -140,10 +141,12 @@
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (package-refresh-contents)
-  (dolist (package '(markdown-mode paredit rainbow-delimiters))
+  (dolist (package '(markdown-mode
+                     paredit
+                     rainbow-delimiters
+                     multiple-cursors))
     (unless (package-installed-p package)
       (package-install package))))
-
 
 ;;; Paredit Configuration ============================================
 
@@ -182,6 +185,19 @@
   (set-face-foreground 'rainbow-delimiters-depth-8-face "#999")  ; medium gray
   (set-face-foreground 'rainbow-delimiters-depth-9-face "#666")) ; dark gray
 
+;;; Multiple-Cursors Configurations =================================
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+;;; Language Specific Configurations ================================
+;;;=== C ===;;;
+(setq c-default-style "linux"
+      c-basic-offset 4)
 
 ;;; The End ==========================================================
 
