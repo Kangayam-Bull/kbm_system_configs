@@ -1,0 +1,128 @@
+a.exe 
+cd D:
+ls
+ls
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc -S main.c
+ls
+cp main.s main_structA.s
+gcc main.c -o a.exe
+gcc -S main.c
+mv main.s main_structB.s
+cat main_structA.s 
+cd ..
+ls
+cd linked_list/
+ls
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+gcc main.c -o a.exe
+./a.exe 
+ls
+cd test/
+ls
+main.c
+ls
+gcc -o main.c 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+gcc main.c -o main
+gcc main.c -o main
+./main 
+gcc main.c -o main
+./main 
+./main 
+./main 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+gcc main.c -o main
+gcc main.c -o main
+./main 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+gcc main.c -o main
+./main 
+main.c:6:38: note (near initialization for ‘b’)
+ls
+cd ../
+ls
+cd ..
+ls
+cd ..
+ls
+cd etc/
+ls
+cd fonts/
+ls
+cd conf.d/
+ls
+cd ../../
+ls
+cd ..
+ls
+cd ~
+cd /usr/share/font
+ls
+sudo ls -la /usr/share/font
+su
+ls
+cd ..
+cd ~
+ls
+cd co
+ls
+cd config/
+ls
+cd fonts/
+ls
+ls
+ls
