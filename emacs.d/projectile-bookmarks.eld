@@ -1,0 +1,1 @@
+("/mnt/d/docs/Notes/" "~/programming/zig_land/block_scopes/" "~/programming/zig_land/hello_world/" "~/programming/zig_land/foo/" "~/42_subjects_boot/42-Subjects/" "~/programming/ascii-view/" "~/meow/meow/")

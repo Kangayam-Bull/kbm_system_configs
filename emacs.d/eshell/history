@@ -1,12 +1,3 @@
-a.exe 
-cd D:
-ls
-ls
-gcc main.c -o a.exe
-gcc main.c -o a.exe
-gcc main.c -o a.exe
-gcc -S main.c
-ls
 cp main.s main_structA.s
 gcc main.c -o a.exe
 gcc -S main.c
@@ -126,3 +117,12 @@ cd fonts/
 ls
 ls
 ls
+ls
+gcc -o main.c 
+gcc main.c 
+gcc main.c 
+gcc main.c -o a.exe
+./a.exe 
+gcc main.c -o a.exe
+./a.exe 
+touch art.md
