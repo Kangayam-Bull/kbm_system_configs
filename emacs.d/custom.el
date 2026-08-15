@@ -4,8 +4,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ef-themes impatient-mode jinx markdown-mode multiple-cursors paredit
-               rainbow-delimiters xah-fly-keys)))
+   '(ef-themes evil impatient-mode jinx markdown-mode meow
+               multiple-cursors paredit projectile rainbow-delimiters
+               vertico xah-fly-keys)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -52,7 +52,7 @@
 
 ;; Highlight matching pairs of parentheses.
 (setq show-paren-delay 0)
-(show-paren-mode)
+(show-paren-mode 1)
 
 ;; Auto-complete inputs in the minibuffer.
 (fido-vertical-mode)
@@ -64,7 +64,7 @@
 ;; (set-face-attribute 'default nil :font "Consolas" :height 136)
 ;; (set-face-attribute 'default nil :font "Roboto Mono" :height 136)
 ;; (set-face-attribute 'default nil :font "Berkeley Mono" :height 136)
-(set-face-attribute 'default nil :font "Google Sans Code" :height 139)
+(set-face-attribute 'default nil :font "Google Sans Code" :height 142)
 
 ;;; Whitespace =======================================================
 
@@ -135,10 +135,10 @@
 ;; Custom key sequences.
 (global-set-key (kbd "C-c t") 'show-current-time)
 (global-set-key (kbd "C-c d") 'delete-trailing-whitespace)
-
+(global-set-key (kbd "C-<left>") 'backward-word)
+(global-set-key (kbd "C-<right>") 'forward-word)
 
 ;;; Emacs Server =====================================================
-
 (require 'server)
 (unless (server-running-p)
   (server-start))
@@ -153,28 +153,152 @@
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (package-refresh-contents)
   (dolist (package '(markdown-mode
-                     paredit
                      rainbow-delimiters
-                     multiple-cursors))
+                     multiple-cursors
+                     evil
+                     projectile
+                     vertico
+                     meow))
     (unless (package-installed-p package)
       (package-install package))))
 
-;;; Paredit Configuration ============================================
+;;; EVIL Mode Configuration =========================================
+;; (require 'evil)
+;; (evil-mode 1)
 
-;; Enable Paredit on various Lisp modes.
-(when (fboundp 'paredit-mode)
-  (dolist (hook '(emacs-lisp-mode-hook
-                  eval-expression-minibuffer-setup-hook
-                  ielm-mode-hook
-                  lisp-interaction-mode-hook
-                  lisp-mode-hook))
-    (add-hook hook 'enable-paredit-mode)))
+;;;; Xah-Fly Mode Configuration =====================================
+;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+;; (require 'xah-fly-keys)
+;; specify a layout
+;; (xah-fly-keys-set-layout "qwerty")
+;; (xah-fly-keys 1)
 
-;; Do not bind RET to paredit-RET which prevents input from being
-;; evaluated on RET in M-:, ielm, etc.
-(with-eval-after-load 'paredit
-  (define-key paredit-mode-map (kbd "RET") nil))
+;;;; Meow Mode Configuration =====================================
+(use-package meow
+  :ensure t
+  :demand t
+  :init
+  (defun meow-setup ()
+    (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+    (meow-motion-overwrite-define-key
+     '("j" . meow-next)
+     '("k" . meow-prev)
+     '("<escape>" . ignore))
+    (meow-leader-define-key
+     '("j" . "H-j")
+     '("k" . "H-k")
+     '("1" . meow-digit-argument)
+     '("2" . meow-digit-argument)
+     '("3" . meow-digit-argument)
+     '("4" . meow-digit-argument)
+     '("5" . meow-digit-argument)
+     '("6" . meow-digit-argument)
+     '("7" . meow-digit-argument)
+     '("8" . meow-digit-argument)
+     '("9" . meow-digit-argument)
+     '("0" . meow-digit-argument)
+     '("/" . meow-keypad-describe-key)
+     '("?" . meow-cheatsheet))
+    (meow-normal-define-key
+     '("0" . meow-expand-0)
+     '("9" . meow-expand-9)
+     '("8" . meow-expand-8)
+     '("7" . meow-expand-7)
+     '("6" . meow-expand-6)
+     '("5" . meow-expand-5)
+     '("4" . meow-expand-4)
+     '("3" . meow-expand-3)
+     '("2" . meow-expand-2)
+     '("1" . meow-expand-1)
+     '("-" . negative-argument)
+     '(";" . meow-reverse)
+     '("," . meow-inner-of-thing)
+     '("." . meow-bounds-of-thing)
+     '("[" . meow-beginning-of-thing)
+     '("]" . meow-end-of-thing)
+     '("a" . meow-append)
+     '("A" . meow-open-below)
+     '("b" . meow-back-word)
+     '("B" . meow-back-symbol)
+     '("c" . meow-change)
+     '("d" . meow-delete)
+     '("D" . meow-backward-delete)
+     '("e" . meow-next-word)
+     '("E" . meow-next-symbol)
+     '("f" . meow-find)
+     '("g" . meow-cancel-selection)
+     '("G" . meow-grab)
+     '("h" . meow-left)
+     '("H" . meow-left-expand)
+     '("i" . meow-insert)
+     '("I" . meow-open-above)
+     '("j" . meow-next)
+     '("J" . meow-next-expand)
+     '("k" . meow-prev)
+     '("K" . meow-prev-expand)
+     '("l" . meow-right)
+     '("L" . meow-right-expand)
+     '("m" . meow-join)
+     '("n" . meow-search)
+     '("o" . meow-block)
+     '("O" . meow-to-block)
+     '("p" . meow-yank)
+     '("q" . meow-quit)
+     '("Q" . meow-goto-line)
+     '("r" . meow-replace)
+     '("R" . meow-swap-grab)
+     '("s" . meow-kill)
+     '("t" . meow-till)
+     '("u" . meow-undo)
+     '("U" . meow-undo-in-selection)
+     '("v" . meow-visit)
+     '("w" . meow-mark-word)
+     '("W" . meow-mark-symbol)
+     '("x" . meow-line)
+     '("X" . meow-goto-line)
+     '("y" . meow-save)
+     '("Y" . meow-sync-grab)
+     '("z" . meow-pop-selection)
+     '("'" . repeat)
+     '("<escape>" . ignore)))
+  :config
+  (meow-setup)
+  (meow-global-mode 1))
 
+;; Enable Vertico.
+;; (use-package vertico
+;;   :custom
+;;   ;; (vertico-scroll-margin 0) ;; Different scroll margin
+;;   ;; (vertico-count 20) ;; Show more candidates
+;;   ;; (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
+;;   ;; (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
+;;   :init
+;;   (vertico-mode))
+
+;; ;; Persist history over Emacs restarts. Vertico sorts by history position.
+;; (use-package savehist
+;;   :init
+;;   (savehist-mode))
+
+;; ;; Emacs minibuffer configurations.
+;; (use-package emacs
+;;   :custom
+;;   ;; Enable context menu. `vertico-multiform-mode' adds a menu in the minibuffer
+;;   ;; to switch display modes.
+;;   (context-menu-mode t)
+;;   ;; Support opening new minibuffers from inside existing minibuffers.
+;;   (enable-recursive-minibuffers t)
+;;   ;; Hide commands in M-x which do not work in the current mode.  Vertico
+;;   ;; commands are hidden in normal buffers. This setting is useful beyond
+;;   ;; Vertico.
+;;   (read-extended-command-predicate #'command-completion-default-include-p)
+;;   ;; Do not allow the cursor in the minibuffer prompt
+;;   (minibuffer-prompt-properties
+;;    '(read-only t cursor-intangible t face minibuffer-prompt)))
+
+;;; Proejectile Mode Configuration ==================================
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;;; Rainbow Delimiters Configuration =================================
 
@@ -182,19 +306,10 @@
   (dolist (hook '(emacs-lisp-mode-hook
                   ielm-mode-hook
                   lisp-interaction-mode-hook
-                  lisp-mode-hook))
+                  lisp-mode-hook
+                  c-mode-hook))
     (add-hook hook 'rainbow-delimiters-mode)))
 
-(with-eval-after-load 'rainbow-delimiters
-  (set-face-foreground 'rainbow-delimiters-depth-1-face "#c66")  ; red
-  (set-face-foreground 'rainbow-delimiters-depth-2-face "#6c6")  ; green
-  (set-face-foreground 'rainbow-delimiters-depth-3-face "#69f")  ; blue
-  (set-face-foreground 'rainbow-delimiters-depth-4-face "#cc6")  ; yellow
-  (set-face-foreground 'rainbow-delimiters-depth-5-face "#6cc")  ; cyan
-  (set-face-foreground 'rainbow-delimiters-depth-6-face "#c6c")  ; magenta
-  (set-face-foreground 'rainbow-delimiters-depth-7-face "#ccc")  ; light gray
-  (set-face-foreground 'rainbow-delimiters-depth-8-face "#999")  ; medium gray
-  (set-face-foreground 'rainbow-delimiters-depth-9-face "#666")) ; dark gray
 
 ;;; Language Specific Configurations ================================
 ;;;=== C ===;;;
@@ -215,4 +330,10 @@
 
 (provide 'init)
 
+;;; To-Do map the C-<- and C-> to alt-b and alt-f keys
+
 ;;; init.el ends here
+
+
+
+
